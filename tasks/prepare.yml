@@ -1,0 +1,13 @@
+---
+- name: Inlcude tasks
+  include_tasks: "./prepare/{{ to_prepare_shell.shell | basename }}.yml"
+  vars:
+    user: "{{ to_prepare_shell.name }}"
+    shell: "{{ to_prepare_shell.shell | basename }}"
+    params: "{{ to_prepare_shell.shell_params }}"
+    plugins: "{{ to_prepare_shell.plugins }}"
+  when: 
+    - to_prepare_shell.shell | basename not in ['true', 'false']
+  loop: "{{ to_prepare }}"
+  loop_control:
+    loop_var: to_prepare_shell

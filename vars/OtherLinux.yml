@@ -1,0 +1,10 @@
+---
+add_repository_module: opkg
+
+shells:
+  bash:
+    package_name: bash
+  ash:
+    package_name: ash
+  zsh:
+    package_name: zsh

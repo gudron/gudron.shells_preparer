@@ -1,0 +1,9 @@
+---
+to_prepare:
+  - name: exmaple_user
+    shell: /bin/zsh
+    shell_params:
+      ZSH_THEME: agnoster
+    plugins:
+      - git
+      - docker-compose

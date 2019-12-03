@@ -1,0 +1,7 @@
+{{ ansible_managed | comment }}
+
+{% for shell_param_name, shell_param_value in params.items() %}
+{{ shell_param_name }}={{ shell_param_value }}
+{% endfor %}
+
+plugins=({{ plugins|join(' ')}})

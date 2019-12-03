@@ -1,0 +1,5 @@
+---
+package_module: apt
+
+fonts:
+  powerline: fonts-powerline

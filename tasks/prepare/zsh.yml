@@ -1,0 +1,54 @@
+---
+- name: Download oh-my-zsh
+  get_url:
+    url: https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: /tmp/install.sh
+
+- name: Remove old .oh-my-zsh
+  file:
+    state: absent
+    path: "/home/{{ user }}/.oh-my-zsh"
+
+- name: Install oh-my-zsh
+  script: /tmp/install.sh
+  vars:
+    ansible_become: true
+    ansible_become_user: "{{ user }}"
+    ansible_become_method: "sudo"
+
+- name: Remove old .oh-my-zsh
+  file:
+    state: directory
+    recurse: yes
+    path: "/home/{{ user }}/.config/zsh/"
+
+- name: Create zshrc settings file
+  template:
+    src: "templates/shellrc.main.j2"
+    dest: "/home/{{ user }}/.config/zsh/main.sh"
+    mode: "0600"
+
+- name: Add include zsh settings file in zshrc file
+  blockinfile:
+    insertafter: "plugins="
+    content: "{{ lookup('template', 'templates/shellrc_include_block.j2') }}"
+    dest: "/home/{{ user }}/.zshrc"
+    state: present
+    marker: "# ANSIBLE MAGED BLOCK {mark}"
+    marker_begin: "# BEGIN ZSH SETTINGS CONFIG"
+    marker_end: "# END ZSH SETTINGS CONFIG"
+    backup: yes
+
+- name: Install fonts
+  action:
+    module: "{{ package_module }}"
+    name: "{{ font.value }}"
+    state: present
+  loop: "{{ fonts | dict2items }}"
+  loop_control:
+    loop_var: font
+  become: true
+  become_user: "gudron"
+  become_method: "sudo"
+  vars:
+    ansible_become: true

@@ -1,0 +1,31 @@
+galaxy_info:
+  author: Alex V Kotelnikov 
+  description: Role for preprare user shell environment
+  license: "license (Apache)"
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - 18.04
+        - 16.04
+    - name: Debian
+      versions:
+        - 8.0
+        - 9.0  
+
+  galaxy_tags:
+    - shell 
+    - linux shell
+    - ash
+    - bash
+    - zsh
+    - bashrc
+    - zshrc
+    - user shell
+    - shell rc files
+    
+allow_duplicates: true
+
+dependencies: []

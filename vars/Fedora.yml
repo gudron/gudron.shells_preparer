@@ -1,0 +1,5 @@
+---
+package_module: yum
+
+fonts:
+  powerline: powerline-fonts
