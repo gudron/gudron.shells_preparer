@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Alex V Kotelnikov 
-  description: Role for preprare user shell environment
-  license: "license (Apache)"
+  author: Alex V Kotelnikov
+  description: Ansible role for preprare user shell environment
+  license: Apache 2.0
 
   min_ansible_version: 2.4
 
@@ -13,10 +13,10 @@ galaxy_info:
     - name: Debian
       versions:
         - 8.0
-        - 9.0  
+        - 9.0
 
   galaxy_tags:
-    - shell 
+    - shell
     - linux shell
     - ash
     - bash
@@ -25,7 +25,7 @@ galaxy_info:
     - zshrc
     - user shell
     - shell rc files
-    
+
 allow_duplicates: true
 
 dependencies: []
