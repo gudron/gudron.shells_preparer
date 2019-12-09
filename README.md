@@ -1,7 +1,7 @@
 gudron.shells_preparer
-=========
+======================
 
-Role for preprare user shell environment
+Ansible role for preprare user shell environment
 
 Role Variables
 --------------
@@ -24,7 +24,24 @@ Role Variables
     * `plugins: list` 
       List of shell plugins will be installed.
 
-    Full example: [defaults/main.yml](defaults/main.yml).
+  Full example: [defaults/main.yml](defaults/main.yml).
+
+Instalation
+-----------
+
+Add **gudron.shells_preparer** role to your *requirements* file.
+
+```yaml
+  - src: git@github.com:gudron/gudron.shells_preparer.git
+    scm: git
+    version: master
+```
+
+Install roles via **ansible-galaxy** tool.
+
+```bash
+ansible-galaxy install -p roles -r requirements.yml
+```
 
 Example Playbook
 ----------------
@@ -48,4 +65,4 @@ Example Playbook
 License
 -------
 
-Apache
+Apache 2.0
