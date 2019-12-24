@@ -1,5 +1,5 @@
 ---
-add_repository_module: opkg
+add_repository_module: apk
 
 fonts:
   powerline: fonts-powerline
